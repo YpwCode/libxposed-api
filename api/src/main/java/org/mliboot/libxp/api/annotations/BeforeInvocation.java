@@ -1,4 +1,4 @@
-package io.github.libxposed.api.annotations;
+package org.mliboot.libxp.api.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

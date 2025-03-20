@@ -1,4 +1,4 @@
-package io.github.libxposed.api;
+package org.mliboot.libxp.api;
 
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
  * Interface for module initialization.
  */
 @SuppressWarnings("unused")
-public interface XposedModuleInterface {
+public interface IXpModuleInter {
     /**
      * Wraps information about the process in which the module is loaded.
      */

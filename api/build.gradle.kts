@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.libxposed.api"
+    namespace = "org.mliboot.libxp.api"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
 
@@ -36,7 +36,7 @@ publishing {
     publications {
         register<MavenPublication>("api") {
             artifactId = "api"
-            group = "io.github.libxposed"
+            group = "org.mliboot.libxp"
             version = "100"
             pom {
                 name.set("api")

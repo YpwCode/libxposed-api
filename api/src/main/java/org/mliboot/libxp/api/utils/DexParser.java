@@ -1,4 +1,4 @@
-package io.github.libxposed.api.utils;
+package org.mliboot.libxp.api.utils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

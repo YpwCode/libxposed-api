@@ -1,4 +1,4 @@
-package io.github.libxposed.api;
+package org.mliboot.libxp.api;
 
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -15,17 +15,17 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 
-import io.github.libxposed.api.annotations.AfterInvocation;
-import io.github.libxposed.api.annotations.BeforeInvocation;
-import io.github.libxposed.api.annotations.XposedHooker;
-import io.github.libxposed.api.errors.HookFailedError;
-import io.github.libxposed.api.utils.DexParser;
+import org.mliboot.libxp.api.annotations.AfterInvocation;
+import org.mliboot.libxp.api.annotations.BeforeInvocation;
+import org.mliboot.libxp.api.annotations.XpHandler;
+import org.mliboot.libxp.api.errors.HandlerFailedError;
+import org.mliboot.libxp.api.utils.DexParser;
 
 /**
  * Xposed interface for modules to operate on application processes.
  */
 @SuppressWarnings("unused")
-public interface XposedInterface {
+public interface IXpInter {
     /**
      * SDK API version.
      */
@@ -166,7 +166,7 @@ public interface XposedInterface {
      * like the old API.
      *
      * <p>
-     * Classes implementing this interface should be annotated with {@link XposedHooker} and should provide
+     * Classes implementing this interface should be annotated with {@link XpHandler} and should provide
      * two public static methods that are annotated with {@link BeforeInvocation} and {@link AfterInvocation},
      * respectively.
      * </p>
@@ -276,7 +276,7 @@ public interface XposedInterface {
      * @return Unhooker for canceling the hook
      * @throws IllegalArgumentException if origin is abstract, framework internal or {@link Method#invoke},
      *                                  or hooker is invalid
-     * @throws HookFailedError          if hook fails due to framework internal error
+     * @throws HandlerFailedError          if hook fails due to framework internal error
      */
     @NonNull
     MethodUnhooker<Method> hook(@NonNull Method origin, @NonNull Class<? extends Hooker> hooker);
@@ -290,7 +290,7 @@ public interface XposedInterface {
      * @return Unhooker for canceling the hook
      * @throws IllegalArgumentException if origin is abstract, framework internal or {@link Method#invoke},
      *                                  or hooker is invalid
-     * @throws HookFailedError          if hook fails due to framework internal error
+     * @throws HandlerFailedError          if hook fails due to framework internal error
      */
     @NonNull
     MethodUnhooker<Method> hook(@NonNull Method origin, int priority, @NonNull Class<? extends Hooker> hooker);
@@ -304,7 +304,7 @@ public interface XposedInterface {
      * @return Unhooker for canceling the hook
      * @throws IllegalArgumentException if origin is abstract, framework internal or {@link Method#invoke},
      *                                  or hooker is invalid
-     * @throws HookFailedError          if hook fails due to framework internal error
+     * @throws HandlerFailedError          if hook fails due to framework internal error
      */
     @NonNull
     <T> MethodUnhooker<Constructor<T>> hook(@NonNull Constructor<T> origin, @NonNull Class<? extends Hooker> hooker);
@@ -319,7 +319,7 @@ public interface XposedInterface {
      * @return Unhooker for canceling the hook
      * @throws IllegalArgumentException if origin is abstract, framework internal or {@link Method#invoke},
      *                                  or hooker is invalid
-     * @throws HookFailedError          if hook fails due to framework internal error
+     * @throws HandlerFailedError          if hook fails due to framework internal error
      */
     @NonNull
     <T> MethodUnhooker<Constructor<T>> hook(@NonNull Constructor<T> origin, int priority, @NonNull Class<? extends Hooker> hooker);
